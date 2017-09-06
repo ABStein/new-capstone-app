@@ -2,13 +2,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
-
-  def show
-    @products = Product.first
-  end
-
+  
   def new
-    
+
   end
 
   def create
@@ -20,22 +16,38 @@ class ProductsController < ApplicationController
                           )
 
     product.save
+    flash[:success] = "Product successfully created"
+    redirect_to "/products/#{product.id}"
+  end
+  
+  def show
+    @product = Product.find(params[:id])
   end
 
   def edit
-    @product = product.find(params[:id]) 
+    @product = Product.find(params[:id]) 
   end
 
   def update
     product = Product.find(params[:id])
 
     product.assign_attributes(
-      )
+                              name: params[:name],
+                              description: params[:description],
+                              price: params[:price],
+                              image: params[:image]
+                              )
+
+    product.save
+    flash[:success] = "Product successfully updated"
+    redirect_to "/products/#{product.id}"
     
   end
 
   def destroy
-    @product = product.find(params[:id])
+    product = Product.find(params[:id])
     product.destroy
+    flash[:success] = "Product successfully deleted"
+    redirect_to "/products"
   end
 end
