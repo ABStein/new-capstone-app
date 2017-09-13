@@ -3,10 +3,10 @@
 <h2>Name: <%= @product.name %></h2>
 
 
-<% if @product.discounted? %>
-  <h5>Discount Item!</h5>
-<% else %>
-  <h5>Everyday Value!</h5>
+  <% if @product.discounted? %>
+    <h5>Discount Item!</h5>
+  <% else %>
+    <h5>Everyday Value!</h5>
 <% end %>
 
 
@@ -14,12 +14,14 @@
 <h4>Tax: <%= number_to_currency(@product.tax) %></h4>
 <h4>Total: <%= number_to_currency(@product.total) %></h4>
 <h3>Description:</h3>
-<ul>
-   <% @product.description_list.each do |description| %>
-   <li><%= description %></li> 
-   <% end %>
-</ul>
+    <ul>
+     <% @product.description_list.each do |description| %>
+     <li><%= description %></li> 
+     <% end %>
+    </ul>
 <img src="<%= @product.image %>">
 
 <%= link_to "Edit Product", "/products/#{@product.id}/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete, class: "btn btn-danger" %>
+
+<p>Supplier: <%= @product.supplier.name %></p>

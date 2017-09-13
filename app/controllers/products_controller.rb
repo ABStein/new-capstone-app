@@ -1,7 +1,34 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+
+    sort_attribute = params[:sort]
+    sort_by_attribute = params[:sort_by]
+    sort_by_discount = params[:discount]
+    random_product = params[:random]
+
+    if sort_attribute
+      @products = @products.order(sort_attribute)
+    end
+
+    if sort_attribute && sort_by_attribute
+      @products = @products.order(sort_attribute).reverse
+    end
+
+    if sort_by_discount 
+      @products = Product.where("price < ?", sort_by_discount)
+      # temp_products = []
+      # @products.each do |product|
+      #   if product.discounted?
+      #     temp_products << product
+      #   end
+      # end
+      # @products = temp_products
+    end
+
   end
+
+
   
   def new
 
