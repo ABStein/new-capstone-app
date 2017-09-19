@@ -21,6 +21,19 @@
     </ul>
 <img src="<%= @product.image %>">
 
+<%= form_tag '/orders', method: :post do %>
+    <div>
+      Quantity: <input type="text" name="quantity">
+    </div>
+    <div>
+      <input type="hidden" name="product_id" value="<%= @product.id %>">
+    </div>
+    <div>
+      <input type="submit" value="Buy Now!">
+    </div>
+
+<% end %>
+
 <%= link_to "Edit Product", "/products/#{@product.id}/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete, class: "btn btn-danger" %>
 
