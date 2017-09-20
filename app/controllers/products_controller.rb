@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     sort_by_attribute = params[:sort_by]
     sort_by_discount = params[:discount]
     random_product = params[:random]
+    sort_category = params[:category]
 
     if sort_attribute
       @products = @products.order(sort_attribute)
@@ -25,6 +26,12 @@ class ProductsController < ApplicationController
       # end
       # @products = temp_products
     end
+
+    if sort_category
+      category = Category.find_by(name: sort_category)
+      @products = category.products
+    end
+
 
   end
 

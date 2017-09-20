@@ -33,8 +33,23 @@
 # Supplier.create(name: "Mega Ultra Computer Depot", email: "SuperAwesome@gmail.com", phone_number: "800-345-7890")
 # Supplier.create(name: "Computers R Us", email: "TrixAreForKids@gmail.com", phone_number: "800-135-7911")
 
-products = Product.all 
+# products = Product.all 
 
-products.each do |product| 
-  product.update(supplier_id: rand(1..3) )
-end
+# products.each do |product| 
+#   product.update(supplier_id: rand(1..3) )
+# 
+
+
+
+# Category.create!(name: "Cheap")
+# Category.create!(name: "Expensive")
+# Category.create!(name: "Accessory")
+
+CategoryProduct.create!(product_id: 17, category_id: 2)
+CategoryProduct.create!(product_id: 17, category_id: 3)
+CategoryProduct.create!(product_id: 19, category_id: 1)
+CategoryProduct.create!(product_id: 19, category_id: 3)
+CategoryProduct.create!(product_id: 23, category_id: 1)
+CategoryProduct.create!(product_id: 23, category_id: 3)
+
+
