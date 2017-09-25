@@ -1,8 +1,8 @@
-<h1>Order #<%= @order.id %> Created.</h1>
-<h2>Bougth by: <%= @order.user.name %></h2>
-<h2>Qty: <%= @order.quantity %></h2>
+<h1>Order #75030<%= @order.id %> Created</h1>
+<h2>Bought by: <%= @order.user.name %></h2>
 <h2>Product: <%= @order.product.name %></h2>
+<h2>Quantity: <%= @order.quantity %></h2>
 <h2>Product Price: <%= number_to_currency(@order.product.price) %></h2>
-
-
-
+<h2>Subtotal: <%= number_to_currency(@order.subtotal) %></h2>
+<h2>Tax: <%= number_to_currency(@order.tax) %></h2>
+<h2>Total: <%= number_to_currency(@order.total) %></h2>

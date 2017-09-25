@@ -29,10 +29,18 @@
       <input type="hidden" name="product_id" value="<%= @product.id %>">
     </div>
     <div>
-      <input type="submit" value="Buy Now!">
+      <input type="submit" value="Add To Cart">
     </div>
 
 <% end %>
+
+<h5>Categories</h5>
+<ul>
+  <% @product.categories.each do |category| %>
+  <li><%= category.name %></li>
+<% end %>
+
+</ul>
 
 <%= link_to "Edit Product", "/products/#{@product.id}/edit", class: "btn btn-warning" %>
 <%= link_to "Delete Product", "/products/#{@product.id}", method: :delete, class: "btn btn-danger" %>

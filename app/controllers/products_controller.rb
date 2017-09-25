@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
 
   
   def new
-
+    @suppliers = Supplier.all
   end
 
   def create

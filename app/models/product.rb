@@ -2,6 +2,9 @@ class Product < ApplicationRecord
   belongs_to :supplier
   has_many :category_products
   has_many :categories, through: :category_products
+  has_many :carted_products
+  has_many :products, through: :carted_products
+  #created our foreign keys between carted_product, user, product, and order models.  
 
   
   def description_list
