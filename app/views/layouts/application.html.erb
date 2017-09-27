@@ -61,7 +61,11 @@
               <% end %>
 
               <li role="separator" class="divider"></li>
-              <li><a href="products/new">New Product</a></li>
+              
+              <% if current_user && current_user.admin %>
+                  <li><a href="products/new">New Product</a></li>
+              <% end %>
+              
               <li><a href="/?sort=price">Order By Price Lowest to High</a></li>
               <li><a href="/?sort=price&sort_by=true">Order By Price Highest to Lowest</a></li>
               <li role="separator" class="divider"></li>

@@ -21,12 +21,15 @@
     </ul>
 <img src="<%= @product.image %>">
 
-<%= form_tag '/orders', method: :post do %>
+<%= form_tag '/carted_products', method: :post do %>
     <div>
       Quantity: <input type="text" name="quantity">
     </div>
     <div>
       <input type="hidden" name="product_id" value="<%= @product.id %>">
+    </div>
+        <div>
+      <input type="hidden" name="status" value="Carted">
     </div>
     <div>
       <input type="submit" value="Add To Cart">

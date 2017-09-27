@@ -1,0 +1,13 @@
+<h1>Checkout</h1>
+
+<% @carted_products.each do |carted| %>
+    <% if carted.status == "Carted" %>
+    <h2>Product: <%= carted.product.name %></h2>
+    <% end %>
+<% end %>
+
+<%= link_to "But now!", "/orders" %>
+<%= form_tag '/orders', method: :post do %>
+    <input typxwe="Submit" value="Buy Now!">
+<% end %>
+
