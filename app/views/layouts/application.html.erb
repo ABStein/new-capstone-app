@@ -63,7 +63,7 @@
               <li role="separator" class="divider"></li>
               
               <% if current_user && current_user.admin %>
-                  <li><a href="products/new">New Product</a></li>
+                  <li><a href="products/new">Add New Product</a></li>
               <% end %>
               
               <li><a href="/?sort=price">Order By Price Lowest to High</a></li>
@@ -72,6 +72,8 @@
               <% Category.all.each do |category| %>
                 <li><a href="/?category=<%= category.name %>"><%= category.name %></a></li>
               <% end %>
+                <li role="separator" class="divider"></li>
+              <li><a href="/carted_products"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cart ( <%= @cart_count %> )</a></li>
             </ul>
           </li>
         </ul>
