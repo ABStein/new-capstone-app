@@ -1,4 +1,7 @@
 class CartedProductsController < ApplicationController
+  before_action: :authenticate_user! #, only: [:create, :index, :destroy] this is all implied.
+
+
   def index
     if current_user && current_user.current_cart.any?
       @carted_products = current_user.current_cart
@@ -18,7 +21,6 @@ class CartedProductsController < ApplicationController
     carted_product.save
     flash[:success] = "Successfully Added To Cart"
     redirect_to "/carted_products"
-
   end
 
   def show

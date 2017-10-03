@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_admin!, except: [:index, :show,:random]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
 
@@ -44,19 +44,26 @@ class ProductsController < ApplicationController
   
   def new
     @suppliers = Supplier.all
+    @product = Product.new
   end
 
   def create
-    product = Product.new(
+    @product = Product.new(
                           name: params[:name],
                           description: params[:description],
                           price: params[:price],
                           image: params[:image]
                           )
 
-    product.save
-    flash[:success] = "Product successfully created"
-    redirect_to "/products/#{product.id}"
+    if @product.save
+      flash[:success] = "Product successfully created"
+      redirect_to "/products/#{@product.id}"
+    else
+      @suppliers = Supplier.all
+      @errors = @product.errors.full_messages
+      # flash[:danger] = "You have failed, fill things in!"
+      render "new.html.erb"
+    end
   end
   
   def show
@@ -77,11 +84,11 @@ class ProductsController < ApplicationController
                               price: params[:price],
                               image: params[:image]
                               )
-
+    if 
     product.save
     flash[:success] = "Product successfully updated"
     redirect_to "/products/#{product.id}"
-    
+    end
   end
 
   def destroy

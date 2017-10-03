@@ -1,23 +1,37 @@
 <h1>Add a new product</h1>
 
 
-<%= form_tag "/products", method: :post do %> 
+  <% if @errors %>
+    <% @errors.each do |error| %>
+       <%= error %>    
+    <% end %>
+ 
+  <% end %>
+  
+  <%= form_tag "/products", method: :post do %> 
 
-<div>
-Name: <input type="text" name="name">
-</div>
+    <div>
+    Name: <input type="text" name="name">
+    </div>
 
-<div>
-Description: <input type="text" name="description">
-</div>
+    <div>
+    Description: <input type="text" name="description">
+    </div>
 
-<div>
-Price: <input type="text" name="price">
-</div>
+    <div>
+    Price: <input type="text" name="price">
+    </div>
 
-<div>
-Image: <input type="text" name="image">
-</div>
-  <input type="submit" value="Save Product">
-
+    <div>
+    Image: <input type="text" name="image">
+    </div>
+      <input type="submit" value="Save Product">
+  <div>
+    Supplier: 
+    <select name="supplier_id" class="form-field-dark">
+      <% @suppliers.each do |supplier| %>
+        <option value="<%= supplier.id %>" <%= 'selected="selected"' if supplier.id == @product.supplier_id %>><%= supplier.name %></option>
+      <% end %>
+    </select>
+  </div>
 <% end %>

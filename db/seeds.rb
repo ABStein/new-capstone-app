@@ -45,11 +45,14 @@
 # Category.create!(name: "Expensive")
 # Category.create!(name: "Accessory")
 
-CategoryProduct.create!(product_id: 17, category_id: 2)
-CategoryProduct.create!(product_id: 17, category_id: 3)
-CategoryProduct.create!(product_id: 19, category_id: 1)
-CategoryProduct.create!(product_id: 19, category_id: 3)
-CategoryProduct.create!(product_id: 23, category_id: 1)
-CategoryProduct.create!(product_id: 23, category_id: 3)
+# CategoryProduct.create!(product_id: 17, category_id: 2)
+# CategoryProduct.create!(product_id: 17, category_id: 3)
+# CategoryProduct.create!(product_id: 19, category_id: 1)
+# CategoryProduct.create!(product_id: 19, category_id: 3)
+# CategoryProduct.create!(product_id: 23, category_id: 1)
+# CategoryProduct.create!(product_id: 23, category_id: 3)
 
+# User.create!(name: "George Hamilton", email: "gh@gmail.com", password_digest: "password", admin: true)
 
+# u = User.new(name: "George Hamilton", email: "gh2@gmail.com", password: "password", password_confirmation: "password", admin: true)
+# u.save

@@ -4,14 +4,18 @@ class Product < ApplicationRecord
   has_many :category_products
   has_many :categories, through: :category_products 
 
+  validates :name, presence: true
+  validates :name, uniqueness: true 
+  validates :description, length: { maximum: 500 }
+  
   
   def description_list
     description.split(", ")
   end
 
-  # def supplier
-  #   Supplier.find_by(id: supplier_id)
-  # end
+  def supplier
+    Supplier.find_by(id: supplier_id)
+  end
 
   def sale_message
     if discounted? < 200 #this is a reader method of the attribute of price
