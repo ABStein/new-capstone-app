@@ -84,10 +84,9 @@ class ProductsController < ApplicationController
                               price: params[:price],
                               image: params[:image]
                               )
-    if 
-    product.save
-    flash[:success] = "Product successfully updated"
-    redirect_to "/products/#{product.id}"
+    if product.save
+      flash[:success] = "Product successfully updated"
+      redirect_to "/products/#{product.id}"
     end
   end
 

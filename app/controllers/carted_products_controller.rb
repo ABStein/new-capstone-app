@@ -1,5 +1,5 @@
 class CartedProductsController < ApplicationController
-  before_action: :authenticate_user! #, only: [:create, :index, :destroy] this is all implied.
+  before_action :authenticate_user! #, only: [:create, :index, :destroy] this is all implied.
 
 
   def index
