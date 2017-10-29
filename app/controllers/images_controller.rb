@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-    def index
+  def index
     @images = Image.all
   end
 
@@ -42,5 +42,5 @@ class ImagesController < ApplicationController
     flash[:warning] = "Successfully Destroyed Image"
     redirect_to "/images"  
   end
-end
+
 end
