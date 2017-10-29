@@ -5,8 +5,6 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
-
-
   def current_cart
     carted_products.where(status: "carted")
   end

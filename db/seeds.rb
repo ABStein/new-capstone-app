@@ -1,11 +1,7 @@
 
 User.create!([
-  {name: "George Hamilton", email: "Gh@gmail.com", password_digest: "$2a$10$B6CXSfvplB0QckN5SIy.iumV5vx34OOQabSQyDrB5cCBco.6mtEeC", admin: false},
-  {name: "George Hamilton", email: "Gh@gmail.com", password_digest: "$2a$10$GyxCCF3TN021WSCgN3e3EO9G7jV4OUIqlzMwDMRk.YWTtBSj.3eIG", admin: false},
-  {name: "George Hamilton", email: "Gh@gmail.com", password_digest: "$2a$10$dNmKJTeW0C5rowB4UNvluO.rdSy6zQbKQewuf66i6zrFFG77GAQma", admin: false},
-  {name: "George Hamilton", email: "Gh@gmail.com", password_digest: "$2a$10$kiENjKdP6hXEPYUDCBh0x.e6dDhvpZo0gShYQzNEAxp8ZkBsctQiW", admin: false},
-  {name: "George Hamilton", email: "gh@gmail.com", password: "sue", password_confirmation: "sue" admin: true},
-  {name: "George Hamilton", email: "gh2@gmail.com", password_digest: "$2a$10$.ScmQRdDSAGfKhXRfVGLRuxLpGFKuuuhYYMhJsIWfYarC433yk9La", admin: true}
+  {name: "Al Kippers", email: "ak@gmail.com", password: "sue", password_confirmation: "sue", admin: false},
+  {name: "George Hamilton", email: "gh2@gmail.com", password: "sue", password_confirmation: "sue", admin: true}
 ])
 Category.create!([
   {name: "Cheap"},
