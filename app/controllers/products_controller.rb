@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
     elsif sort_attribute
       @products = @products.order(sort_attribute)
     end
-  end
 
     if sort_category
       category = Category.find_by(name: sort_category)
