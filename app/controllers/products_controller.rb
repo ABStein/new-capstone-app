@@ -2,42 +2,33 @@ class ProductsController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-
-
     @products = Product.all
 
-
     sort_attribute = params[:sort]
-    sort_by_attribute = params[:sort_by]
-    sort_by_discount = params[:discount]
-    random_product = params[:random]
-    sort_category = params[:category]
+    order_attribute = params[:sort_order]
+    discount_amount = params[:discount]
+    category_attribute = params[:category]
 
-    if sort_attribute
+    if category_attribute
+      category = Category.find_by(name: category_attribute)
+      @products = category.products
+    end
+
+    if discount_amount
+      @products = @products.where("price < ?", discount_amount)
+    end
+
+    if sort_attribute && order_attribute
+      @products = @products.order({sort_attribute => order_attribute})
+    elsif sort_attribute
       @products = @products.order(sort_attribute)
     end
-
-    if sort_attribute && sort_by_attribute
-      @products = @products.order(sort_attribute).reverse
-    end
-
-    if sort_by_discount
-      @products = Product.where("price < ?", sort_by_discount)
-      temp_products = []
-      @products.each do |product|
-        if product.discounted?
-          temp_products << product
-        end
-      end
-      @products = temp_products
-    end
+  end
 
     if sort_category
       category = Category.find_by(name: sort_category)
       @products = category.products
     end
-
-
   end
 
 
