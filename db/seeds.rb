@@ -21,12 +21,12 @@
 #   {name: "Pre-built computer ", description: "Intel core i7 7700k, Geforce GTX 1080, mini ITX ", price: 1900, image: "https://www.parts-people.com/blog/wp-content/uploads/2017/03/CorsairOneGamingPc-300x200.png", supplier_id: 3},
 #   {name: "Steel Series Arctis 5 Wireless Headphones", description: "Wireless, 7.1 surround sound, long battery life", price: 100, image: "https://tpucdn.com/reviews/SteelSeries/Arctis_5/images/box-front_small.jpg", supplier_id: 3}
 # ])
-CategoryProduct.create!([
-  {product_id: 1, category_id: 2},
-  {product_id: 1, category_id: 3},
-  {product_id: 3, category_id: 1},
-  {product_id: 3, category_id: 3},
-  {product_id: 5, category_id: 1},
-  {product_id: 5, category_id: 3}
-])
+# CategoryProduct.create!([
+#   {product_id: 1, category_id: 2},
+#   {product_id: 1, category_id: 3},
+#   {product_id: 3, category_id: 1},
+#   {product_id: 3, category_id: 3},
+#   {product_id: 5, category_id: 1},
+#   {product_id: 5, category_id: 3}
+# ])
 

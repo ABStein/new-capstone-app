@@ -21,15 +21,15 @@ class ProductsController < ApplicationController
       @products = @products.order(sort_attribute).reverse
     end
 
-    if sort_by_discount 
+    if sort_by_discount
       @products = Product.where("price < ?", sort_by_discount)
-      # temp_products = []
-      # @products.each do |product|
-      #   if product.discounted?
-      #     temp_products << product
-      #   end
-      # end
-      # @products = temp_products
+      temp_products = []
+      @products.each do |product|
+        if product.discounted?
+          temp_products << product
+        end
+      end
+      @products = temp_products
     end
 
     if sort_category
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
   end
 
 
-  
+
   def new
     @suppliers = Supplier.all
     @product = Product.new
@@ -65,14 +65,14 @@ class ProductsController < ApplicationController
       render "new.html.erb"
     end
   end
-  
+
   def show
     @product = Product.find(params[:id])
     @user = User.all
   end
 
   def edit
-    @product = Product.find(params[:id]) 
+    @product = Product.find(params[:id])
   end
 
   def update
